@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Plus, Check, Sparkles } from 'lucide-react';
@@ -6,7 +5,13 @@ import { useGlobalContext } from '../context/GlobalContext';
 import { User } from '../types';
 import { useNavigate } from 'react-router-dom';
 
-const CreatorCard = ({ user, isFollowing, onFollow }: { user: User; isFollowing: boolean; onFollow: (e: React.MouseEvent) => void }) => {
+interface CreatorCardProps {
+  user: User;
+  isFollowing: boolean;
+  onFollow: (e: React.MouseEvent) => void;
+}
+
+const CreatorCard: React.FC<CreatorCardProps> = ({ user, isFollowing, onFollow }) => {
     const navigate = useNavigate();
     
     return (
